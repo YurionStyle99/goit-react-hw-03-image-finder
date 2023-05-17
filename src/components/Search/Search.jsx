@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { FaSistrix } from 'react-icons/fa';
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -16,7 +17,7 @@ class Searchbar extends Component {
 
   handleOnSubmit = evt => {
     evt.preventDefault();
-    if (this.state.searchImg === '') {
+    if (this.state.searchImg.trim() === '') {
       this.showToastWarning("Set name");
     } else {
       this.props.searchValue(this.state.searchImg);
@@ -58,5 +59,9 @@ class Searchbar extends Component {
     );
   }
 }
+
+Searchbar.propTypes = {
+  searchValue: PropTypes.func.isRequired
+};
 
 export default Searchbar;
