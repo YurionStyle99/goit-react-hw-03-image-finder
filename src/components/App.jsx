@@ -52,7 +52,7 @@ class App extends Component {
       selectedTags,
       isLoadingButton,
     } = this.state;
-    const showButton = totalResults > 12;
+    const showButton = totalResults > 12 && currentPage < Math.ceil(totalResults / 12);
 
     return (
       <div className={styles.container}>
